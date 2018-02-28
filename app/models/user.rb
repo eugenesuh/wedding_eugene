@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :guests,
+             :dependent => :destroy
+
   has_many   :bookmarks,
              :class_name => "Alike",
              :dependent => :destroy
