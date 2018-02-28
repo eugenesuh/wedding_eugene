@@ -1,0 +1,100 @@
+<!-- Validation failure messages -->
+<% if @guest.errors.any? %>
+  <% @guest.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Guest #<%= @guest.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_guest/<%= @guest.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @guest.user_id %>">
+      </div>
+
+      <!-- Label and input for age -->
+      <div class="form-group">
+        <label for="age" class="control-label">
+          Age
+        </label>
+
+        <input type="text" id="age" name="age" placeholder="Age" class="form-control" value="<%= @guest.age %>">
+      </div>
+
+      <!-- Label and input for status -->
+      <div class="form-group">
+        <label for="status" class="control-label">
+          Status
+        </label>
+
+        <input type="text" id="status" name="status" placeholder="Status" class="form-control" value="<%= @guest.status %>">
+      </div>
+
+      <!-- Label and input for food -->
+      <div class="form-group">
+        <label for="food" class="control-label">
+          Food
+        </label>
+
+        <input type="text" id="food" name="food" placeholder="Food" class="form-control" value="<%= @guest.food %>">
+      </div>
+
+      <!-- Label and input for lastname -->
+      <div class="form-group">
+        <label for="lastname" class="control-label">
+          Lastname
+        </label>
+
+        <input type="text" id="lastname" name="lastname" placeholder="Lastname" class="form-control" value="<%= @guest.lastname %>">
+      </div>
+
+      <!-- Label and input for firstname -->
+      <div class="form-group">
+        <label for="firstname" class="control-label">
+          Firstname
+        </label>
+
+        <input type="text" id="firstname" name="firstname" placeholder="Firstname" class="form-control" value="<%= @guest.firstname %>">
+      </div>
+
+      <!-- Label and input for dietary -->
+      <div class="form-group">
+        <label for="dietary" class="control-label">
+          Dietary
+        </label>
+
+        <input type="text" id="dietary" name="dietary" placeholder="Dietary" class="form-control" value="<%= @guest.dietary %>">
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @guest.image %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Guest
+      </button>
+      or
+      <a href="/guests/<%= @guest.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
