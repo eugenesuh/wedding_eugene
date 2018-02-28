@@ -22,7 +22,7 @@
 
       <% @guests.each do |guest| %>
       <tr>
-        <td><%= guest.user_id %></td>
+        <td><%= guest.user.email %></td>
         <td><%= guest.age %></td>
         <td><%= guest.status %></td>
         <td><%= guest.food %></td>
