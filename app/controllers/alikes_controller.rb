@@ -47,8 +47,6 @@ class AlikesController < ApplicationController
 
   def update
     @alike = Alike.find(params[:id])
-
-    @alike.user_id = params[:user_id]
     @alike.activity_id = params[:activity_id]
 
     save_status = @alike.save
