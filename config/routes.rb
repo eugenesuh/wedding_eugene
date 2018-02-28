@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Accomodation resource:
+  # CREATE
+  get "/accomodations/new", :controller => "accomodations", :action => "new"
+  post "/create_accomodation", :controller => "accomodations", :action => "create"
+
+  # READ
+  get "/accomodations", :controller => "accomodations", :action => "index"
+  get "/accomodations/:id", :controller => "accomodations", :action => "show"
+
+  # UPDATE
+  get "/accomodations/:id/edit", :controller => "accomodations", :action => "edit"
+  post "/update_accomodation/:id", :controller => "accomodations", :action => "update"
+
+  # DELETE
+  get "/delete_accomodation/:id", :controller => "accomodations", :action => "destroy"
+  #------------------------------
+
   # Routes for the Acomment resource:
   # CREATE
   get "/acomments/new", :controller => "acomments", :action => "new"
