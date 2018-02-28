@@ -9,7 +9,13 @@
       <dd><%= @acomment.user_id %></dd>
 
       <dt>Activity</dt>
-      <dd><%= @acomment.activity_id %></dd>
+      <dd>
+        <% if @acomment.activity.present? %>
+          <a href="/activities/<%= @acomment.activity_id %>">
+            <%= @acomment.activity.title %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Body</dt>
       <dd><%= @acomment.body %></dd>

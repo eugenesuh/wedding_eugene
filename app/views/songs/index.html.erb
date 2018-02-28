@@ -19,7 +19,13 @@
       <tr>
         <td><%= song.title %></td>
         <td><%= song.artist %></td>
-        <td><%= song.user.email %></td>
+        <td>
+          <% if song.user.present? %>
+            <a href="/users/<%= song.user.id %>">
+              <%= song.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/songs/<%= song.id %>" class="btn btn-primary">Show</a>
           <a href="/songs/<%= song.id %>/edit" class="btn btn-warning">Edit</a>

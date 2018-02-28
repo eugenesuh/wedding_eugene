@@ -22,7 +22,13 @@
 
       <% @guests.each do |guest| %>
       <tr>
-        <td><%= guest.user.email %></td>
+        <td>
+          <% if guest.user.present? %>
+            <a href="/users/<%= guest.user.id %>">
+              <%= guest.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= guest.age %></td>
         <td><%= guest.status %></td>
         <td><%= guest.food %></td>

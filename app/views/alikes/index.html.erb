@@ -16,8 +16,20 @@
 
       <% @alikes.each do |alike| %>
       <tr>
-        <td><%= alike.user.email %></td>
-        <td><%= alike.activity.title %></td>
+        <td>
+          <% if alike.user.present? %>
+            <a href="/users/<%= alike.user.id %>">
+              <%= alike.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if alike.activity.present? %>
+            <a href="/activities/<%= alike.activity.id %>">
+              <%= alike.activity.title %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/alikes/<%= alike.id %>" class="btn btn-primary">Show</a>
           

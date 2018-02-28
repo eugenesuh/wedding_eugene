@@ -21,7 +21,13 @@
       <dd><%= @accomodation.code %></dd>
 
       <dt>User</dt>
-      <dd><%= @accomodation.user_id %></dd>
+      <dd>
+        <% if @accomodation.user.present? %>
+          <a href="/users/<%= @accomodation.user_id %>">
+            <%= @accomodation.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

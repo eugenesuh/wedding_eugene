@@ -18,7 +18,13 @@
       <% @acomments.each do |acomment| %>
       <tr>
         <td><%= acomment.user_id %></td>
-        <td><%= acomment.activity.title %></td>
+        <td>
+          <% if acomment.activity.present? %>
+            <a href="/activities/<%= acomment.activity.id %>">
+              <%= acomment.activity.title %>
+            </a>
+          <% end %>
+        </td>
         <td><%= acomment.body %></td>
         <td>
           <a href="/acomments/<%= acomment.id %>" class="btn btn-primary">Show</a>

@@ -12,7 +12,13 @@
       <dd><%= @activity.description %></dd>
 
       <dt>User</dt>
-      <dd><%= @activity.user_id %></dd>
+      <dd>
+        <% if @activity.user.present? %>
+          <a href="/users/<%= @activity.user_id %>">
+            <%= @activity.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Image</dt>
       <dd><%= @activity.image %></dd>

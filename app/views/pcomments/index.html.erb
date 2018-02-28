@@ -17,8 +17,20 @@
 
       <% @pcomments.each do |pcomment| %>
       <tr>
-        <td><%= pcomment.user.email %></td>
-        <td><%= pcomment.photo.caption %></td>
+        <td>
+          <% if pcomment.user.present? %>
+            <a href="/users/<%= pcomment.user.id %>">
+              <%= pcomment.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if pcomment.photo.present? %>
+            <a href="/photos/<%= pcomment.photo.id %>">
+              <%= pcomment.photo.caption %>
+            </a>
+          <% end %>
+        </td>
         <td><%= pcomment.body %></td>
         <td>
           <a href="/pcomments/<%= pcomment.id %>" class="btn btn-primary">Show</a>

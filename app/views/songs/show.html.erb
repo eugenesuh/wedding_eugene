@@ -12,7 +12,13 @@
       <dd><%= @song.artist %></dd>
 
       <dt>User</dt>
-      <dd><%= @song.user_id %></dd>
+      <dd>
+        <% if @song.user.present? %>
+          <a href="/users/<%= @song.user_id %>">
+            <%= @song.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

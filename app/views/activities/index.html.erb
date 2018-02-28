@@ -20,7 +20,13 @@
       <tr>
         <td><%= activity.title %></td>
         <td><%= activity.description %></td>
-        <td><%= activity.user.email %></td>
+        <td>
+          <% if activity.user.present? %>
+            <a href="/users/<%= activity.user.id %>">
+              <%= activity.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= activity.image %></td>
         <td>
           <a href="/activities/<%= activity.id %>" class="btn btn-primary">Show</a>

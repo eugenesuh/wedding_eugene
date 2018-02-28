@@ -16,8 +16,20 @@
 
       <% @plikes.each do |plike| %>
       <tr>
-        <td><%= plike.user.email %></td>
-        <td><%= plike.photo.caption %></td>
+        <td>
+          <% if plike.user.present? %>
+            <a href="/users/<%= plike.user.id %>">
+              <%= plike.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if plike.photo.present? %>
+            <a href="/photos/<%= plike.photo.id %>">
+              <%= plike.photo.caption %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/plikes/<%= plike.id %>" class="btn btn-primary">Show</a>
           <a href="/plikes/<%= plike.id %>/edit" class="btn btn-warning">Edit</a>

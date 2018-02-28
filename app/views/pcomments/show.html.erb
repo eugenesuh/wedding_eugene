@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @pcomment.user_id %></dd>
+      <dd>
+        <% if @pcomment.user.present? %>
+          <a href="/users/<%= @pcomment.user_id %>">
+            <%= @pcomment.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Photo</dt>
-      <dd><%= @pcomment.photo_id %></dd>
+      <dd>
+        <% if @pcomment.photo.present? %>
+          <a href="/photos/<%= @pcomment.photo_id %>">
+            <%= @pcomment.photo.caption %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Body</dt>
       <dd><%= @pcomment.body %></dd>

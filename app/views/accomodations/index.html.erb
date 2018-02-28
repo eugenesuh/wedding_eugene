@@ -25,7 +25,13 @@
         <td><%= accomodation.zip %></td>
         <td><%= accomodation.body %></td>
         <td><%= accomodation.code %></td>
-        <td><%= accomodation.user.email %></td>
+        <td>
+          <% if accomodation.user.present? %>
+            <a href="/users/<%= accomodation.user.id %>">
+              <%= accomodation.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/accomodations/<%= accomodation.id %>" class="btn btn-primary">Show</a>
           <a href="/accomodations/<%= accomodation.id %>/edit" class="btn btn-warning">Edit</a>

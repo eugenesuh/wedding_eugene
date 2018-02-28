@@ -16,8 +16,20 @@
 
       <% @slikes.each do |slike| %>
       <tr>
-        <td><%= slike.user.email %></td>
-        <td><%= slike.song.title %></td>
+        <td>
+          <% if slike.user.present? %>
+            <a href="/users/<%= slike.user.id %>">
+              <%= slike.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if slike.song.present? %>
+            <a href="/songs/<%= slike.song.id %>">
+              <%= slike.song.title %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/slikes/<%= slike.id %>" class="btn btn-primary">Show</a>
           <a href="/slikes/<%= slike.id %>/edit" class="btn btn-warning">Edit</a>
