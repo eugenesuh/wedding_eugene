@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Scomment resource:
+  # CREATE
+  get "/scomments/new", :controller => "scomments", :action => "new"
+  post "/create_scomment", :controller => "scomments", :action => "create"
+
+  # READ
+  get "/scomments", :controller => "scomments", :action => "index"
+  get "/scomments/:id", :controller => "scomments", :action => "show"
+
+  # UPDATE
+  get "/scomments/:id/edit", :controller => "scomments", :action => "edit"
+  post "/update_scomment/:id", :controller => "scomments", :action => "update"
+
+  # DELETE
+  get "/delete_scomment/:id", :controller => "scomments", :action => "destroy"
+  #------------------------------
+
   # Routes for the Slike resource:
   # CREATE
   get "/slikes/new", :controller => "slikes", :action => "new"
