@@ -1,6 +1,6 @@
 class ScommentsController < ApplicationController
   def index
-    @scomments = Scomment.all
+    @scomments = Scomment.page(params[:page]).per(10)
 
     render("scomments/index.html.erb")
   end

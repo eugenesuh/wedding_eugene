@@ -1,6 +1,6 @@
 class PlikesController < ApplicationController
   def index
-    @plikes = Plike.all
+    @plikes = Plike.page(params[:page]).per(10)
 
     render("plikes/index.html.erb")
   end

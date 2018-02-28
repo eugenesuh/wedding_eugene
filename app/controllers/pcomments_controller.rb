@@ -1,6 +1,6 @@
 class PcommentsController < ApplicationController
   def index
-    @pcomments = Pcomment.all
+    @pcomments = Pcomment.page(params[:page]).per(10)
 
     render("pcomments/index.html.erb")
   end

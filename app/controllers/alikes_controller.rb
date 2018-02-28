@@ -10,7 +10,7 @@ class AlikesController < ApplicationController
   end
 
   def index
-    @alikes = Alike.all
+    @alikes = Alike.page(params[:page]).per(10)
 
     render("alikes/index.html.erb")
   end

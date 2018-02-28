@@ -1,6 +1,6 @@
 class AcommentsController < ApplicationController
   def index
-    @acomments = Acomment.all
+    @acomments = Acomment.page(params[:page]).per(10)
 
     render("acomments/index.html.erb")
   end

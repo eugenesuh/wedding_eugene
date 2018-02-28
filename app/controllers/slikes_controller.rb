@@ -1,6 +1,6 @@
 class SlikesController < ApplicationController
   def index
-    @slikes = Slike.all
+    @slikes = Slike.page(params[:page]).per(10)
 
     render("slikes/index.html.erb")
   end
