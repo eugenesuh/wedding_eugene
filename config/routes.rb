@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Pcomment resource:
+  # CREATE
+  get "/pcomments/new", :controller => "pcomments", :action => "new"
+  post "/create_pcomment", :controller => "pcomments", :action => "create"
+
+  # READ
+  get "/pcomments", :controller => "pcomments", :action => "index"
+  get "/pcomments/:id", :controller => "pcomments", :action => "show"
+
+  # UPDATE
+  get "/pcomments/:id/edit", :controller => "pcomments", :action => "edit"
+  post "/update_pcomment/:id", :controller => "pcomments", :action => "update"
+
+  # DELETE
+  get "/delete_pcomment/:id", :controller => "pcomments", :action => "destroy"
+  #------------------------------
+
   # Routes for the Plike resource:
   # CREATE
   get "/plikes/new", :controller => "plikes", :action => "new"
