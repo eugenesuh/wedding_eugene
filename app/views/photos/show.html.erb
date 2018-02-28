@@ -29,3 +29,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Photo has many pcomments -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Pcomments
+      </li>
+
+      <% @photo.pcomments.each do |pcomment| %>
+        <li class="list-group-item">
+          <a href="/pcomments/<%= pcomment.id %>">
+            <%= pcomment.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/pcomments/<%= pcomment.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/pcomments/<%= pcomment.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_pcomment/<%= pcomment.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Photo has many plikes -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Plikes
+      </li>
+
+      <% @photo.plikes.each do |plike| %>
+        <li class="list-group-item">
+          <a href="/plikes/<%= plike.id %>">
+            <%= plike.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/plikes/<%= plike.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/plikes/<%= plike.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_plike/<%= plike.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
