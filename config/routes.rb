@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Alike resource:
+  # CREATE
+  get "/alikes/new", :controller => "alikes", :action => "new"
+  post "/create_alike", :controller => "alikes", :action => "create"
+
+  # READ
+  get "/alikes", :controller => "alikes", :action => "index"
+  get "/alikes/:id", :controller => "alikes", :action => "show"
+
+  # UPDATE
+  get "/alikes/:id/edit", :controller => "alikes", :action => "edit"
+  post "/update_alike/:id", :controller => "alikes", :action => "update"
+
+  # DELETE
+  get "/delete_alike/:id", :controller => "alikes", :action => "destroy"
+  #------------------------------
+
   # Routes for the Scomment resource:
   # CREATE
   get "/scomments/new", :controller => "scomments", :action => "new"
