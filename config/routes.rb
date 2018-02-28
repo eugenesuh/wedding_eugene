@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Slike resource:
+  # CREATE
+  get "/slikes/new", :controller => "slikes", :action => "new"
+  post "/create_slike", :controller => "slikes", :action => "create"
+
+  # READ
+  get "/slikes", :controller => "slikes", :action => "index"
+  get "/slikes/:id", :controller => "slikes", :action => "show"
+
+  # UPDATE
+  get "/slikes/:id/edit", :controller => "slikes", :action => "edit"
+  post "/update_slike/:id", :controller => "slikes", :action => "update"
+
+  # DELETE
+  get "/delete_slike/:id", :controller => "slikes", :action => "destroy"
+  #------------------------------
+
   # Routes for the Song resource:
   # CREATE
   get "/songs/new", :controller => "songs", :action => "new"
