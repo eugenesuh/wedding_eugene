@@ -6,6 +6,8 @@ class PhotosController < ApplicationController
   end
 
   def show
+    @plike = Plike.new
+    @pcomment = Pcomment.new
     @photo = Photo.find(params[:id])
 
     render("photos/show.html.erb")

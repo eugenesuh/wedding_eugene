@@ -6,6 +6,8 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @acomment = Acomment.new
+    @alike = Alike.new
     @activity = Activity.find(params[:id])
 
     render("activities/show.html.erb")
