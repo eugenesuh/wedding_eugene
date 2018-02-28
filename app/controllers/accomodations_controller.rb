@@ -1,6 +1,7 @@
 class AccomodationsController < ApplicationController
   def index
-    @accomodations = Accomodation.page(params[:page]).per(10)
+    @q = Accomodation.ransack(params[:q])
+    @accomodations = @q.result(:distinct => true).includes(:user).page(params[:page]).per(10)
 
     render("accomodations/index.html.erb")
   end

@@ -1,6 +1,7 @@
 class SlikesController < ApplicationController
   def index
-    @slikes = Slike.page(params[:page]).per(10)
+    @q = Slike.ransack(params[:q])
+    @slikes = @q.result(:distinct => true).includes(:user, :song).page(params[:page]).per(10)
 
     render("slikes/index.html.erb")
   end

@@ -1,6 +1,7 @@
 class PcommentsController < ApplicationController
   def index
-    @pcomments = Pcomment.page(params[:page]).per(10)
+    @q = Pcomment.ransack(params[:q])
+    @pcomments = @q.result(:distinct => true).includes(:user, :photo).page(params[:page]).per(10)
 
     render("pcomments/index.html.erb")
   end

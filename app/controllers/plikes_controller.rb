@@ -1,6 +1,7 @@
 class PlikesController < ApplicationController
   def index
-    @plikes = Plike.page(params[:page]).per(10)
+    @q = Plike.ransack(params[:q])
+    @plikes = @q.result(:distinct => true).includes(:user, :photo).page(params[:page]).per(10)
 
     render("plikes/index.html.erb")
   end

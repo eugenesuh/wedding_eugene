@@ -10,7 +10,8 @@ class AlikesController < ApplicationController
   end
 
   def index
-    @alikes = Alike.page(params[:page]).per(10)
+    @q = Alike.ransack(params[:q])
+    @alikes = @q.result(:distinct => true).includes(:user, :activity).page(params[:page]).per(10)
 
     render("alikes/index.html.erb")
   end

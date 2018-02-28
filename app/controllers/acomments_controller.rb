@@ -1,6 +1,7 @@
 class AcommentsController < ApplicationController
   def index
-    @acomments = Acomment.page(params[:page]).per(10)
+    @q = Acomment.ransack(params[:q])
+    @acomments = @q.result(:distinct => true).includes(:activity).page(params[:page]).per(10)
 
     render("acomments/index.html.erb")
   end
