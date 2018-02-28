@@ -17,7 +17,7 @@
 
       <% @pcomments.each do |pcomment| %>
       <tr>
-        <td><%= pcomment.user_id %></td>
+        <td><%= pcomment.user.email %></td>
         <td><%= pcomment.photo_id %></td>
         <td><%= pcomment.body %></td>
         <td>
