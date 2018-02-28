@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Plike resource:
+  # CREATE
+  get "/plikes/new", :controller => "plikes", :action => "new"
+  post "/create_plike", :controller => "plikes", :action => "create"
+
+  # READ
+  get "/plikes", :controller => "plikes", :action => "index"
+  get "/plikes/:id", :controller => "plikes", :action => "show"
+
+  # UPDATE
+  get "/plikes/:id/edit", :controller => "plikes", :action => "edit"
+  post "/update_plike/:id", :controller => "plikes", :action => "update"
+
+  # DELETE
+  get "/delete_plike/:id", :controller => "plikes", :action => "destroy"
+  #------------------------------
+
   # Routes for the Accomodation resource:
   # CREATE
   get "/accomodations/new", :controller => "accomodations", :action => "new"
