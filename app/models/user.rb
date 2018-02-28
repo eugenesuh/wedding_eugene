@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :bookmarks,
+             :class_name => "Alike",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
