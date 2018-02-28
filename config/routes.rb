@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "photos#index"
   # Routes for the Pcomment resource:
   # CREATE
   get "/pcomments/new", :controller => "pcomments", :action => "new"
