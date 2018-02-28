@@ -18,7 +18,7 @@
       <% @acomments.each do |acomment| %>
       <tr>
         <td><%= acomment.user_id %></td>
-        <td><%= acomment.activity_id %></td>
+        <td><%= acomment.activity.title %></td>
         <td><%= acomment.body %></td>
         <td>
           <a href="/acomments/<%= acomment.id %>" class="btn btn-primary">Show</a>
