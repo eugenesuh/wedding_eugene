@@ -17,12 +17,14 @@
       <a href="/alikes" class="btn btn-primary">
         Back
       </a>
-      <a href="/alikes/<%= @alike.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_alike/<%= @alike.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @alike.user %>
+        <a href="/alikes/<%= @alike.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_alike/<%= @alike.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>

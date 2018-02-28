@@ -1,4 +1,14 @@
 class AlikesController < ApplicationController
+  before_action :current_user_must_be_alike_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_alike_user
+    alike = Alike.find(params[:id])
+
+    unless current_user == alike.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @alikes = Alike.all
 
