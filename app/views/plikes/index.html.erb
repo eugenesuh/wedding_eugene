@@ -17,7 +17,7 @@
       <% @plikes.each do |plike| %>
       <tr>
         <td><%= plike.user.email %></td>
-        <td><%= plike.photo_id %></td>
+        <td><%= plike.photo.caption %></td>
         <td>
           <a href="/plikes/<%= plike.id %>" class="btn btn-primary">Show</a>
           <a href="/plikes/<%= plike.id %>/edit" class="btn btn-warning">Edit</a>
