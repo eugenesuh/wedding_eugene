@@ -18,7 +18,7 @@
       <% @scomments.each do |scomment| %>
       <tr>
         <td><%= scomment.user.email %></td>
-        <td><%= scomment.song_id %></td>
+        <td><%= scomment.song.title %></td>
         <td><%= scomment.body %></td>
         <td>
           <a href="/scomments/<%= scomment.id %>" class="btn btn-primary">Show</a>
