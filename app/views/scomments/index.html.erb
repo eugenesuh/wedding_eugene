@@ -17,7 +17,7 @@
 
       <% @scomments.each do |scomment| %>
       <tr>
-        <td><%= scomment.user_id %></td>
+        <td><%= scomment.user.email %></td>
         <td><%= scomment.song_id %></td>
         <td><%= scomment.body %></td>
         <td>
