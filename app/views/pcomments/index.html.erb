@@ -18,7 +18,7 @@
       <% @pcomments.each do |pcomment| %>
       <tr>
         <td><%= pcomment.user.email %></td>
-        <td><%= pcomment.photo_id %></td>
+        <td><%= pcomment.photo.caption %></td>
         <td><%= pcomment.body %></td>
         <td>
           <a href="/pcomments/<%= pcomment.id %>" class="btn btn-primary">Show</a>
