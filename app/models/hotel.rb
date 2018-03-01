@@ -1,10 +1,7 @@
-class Activity < ApplicationRecord
+class Hotel < ApplicationRecord
   # Direct associations
 
-  has_many   :alikes,
-             :dependent => :destroy
-
-  has_many   :acomments,
+  has_many   :hcomments,
              :dependent => :destroy
 
   belongs_to :user

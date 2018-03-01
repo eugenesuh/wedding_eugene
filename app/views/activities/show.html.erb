@@ -39,54 +39,6 @@
   </div>
 </div>
 
-<!-- A Activity has many bookmarks -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Bookmarks
-      </li>
-
-      <% @activity.bookmarks.each do |alike| %>
-        <li class="list-group-item">
-          <a href="/alikes/<%= alike.id %>">
-            <%= alike.user_id %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/alikes/<%= alike.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/alikes/<%= alike.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_alike/<%= alike.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
-      <% end %>
-
-      <li class="list-group-item">
-        <form action="/create_alike" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <!-- Label and input for user_id -->
-      <input type="hidden" name="user_id" value="<%= current_user.id %>">
-
-      <!-- Label and input for activity_id -->
-      <input type="hidden" name="activity_id" value="<%= @activity.id %>">
-
-      <button class="btn btn-block btn-success">
-        Create Alike
-      </button>
-    </form>
-      </li>
-    </ul>
-  </div>
-</div>
-
 <!-- A Activity has many acomments -->
 
 <div class="row">
@@ -143,6 +95,60 @@
 
       <button class="btn btn-block btn-success">
         Create Acomment
+      </button>
+    </form>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- A Activity has many alikes -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Alikes
+      </li>
+
+      <% @activity.alikes.each do |alike| %>
+        <li class="list-group-item">
+          <a href="/alikes/<%= alike.id %>">
+            <%= alike.activity_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/alikes/<%= alike.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/alikes/<%= alike.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_alike/<%= alike.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_alike" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for activity_id -->
+      <input type="hidden" name="activity_id" value="<%= @activity.id %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Alike
       </button>
     </form>
       </li>
