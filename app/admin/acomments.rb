@@ -1,7 +1,6 @@
-ActiveAdmin.register Scomment do
+ActiveAdmin.register Acomment do
 
- permit_params :user_id, :song_id, :body
-
+ permit_params :user_id, :activity_id, :body
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -14,6 +13,5 @@ ActiveAdmin.register Scomment do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
 
 end

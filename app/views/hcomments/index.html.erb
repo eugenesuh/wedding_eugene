@@ -1,36 +1,16 @@
 <div class="page-header">
   <h1>
-    Accomodations
-    <a href="/accomodations/new" class="btn btn-lg btn-success">New Accomodation</a>
+    Hcomments
+    <a href="/hcomments/new" class="btn btn-lg btn-success">New Hcomment</a>
   </h1>
 </div><div class="row mb-1">
   <div class="col-md-12">
-    <%= search_form_for @q, :class => collapse_search_form, :id => "accomodations_filters" do |f| %>
+    <%= search_form_for @q, :class => collapse_search_form, :id => "hcomments_filters" do |f| %>
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
-    <%= f.label :name_cont, "Name contains" %>
-    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
-  </div>
-
-<div class="form-group">
-    <%= f.label :code_cont, "Code contains" %>
-    <%= f.text_field :code_cont, :class => "form-control", :placeholder => "Code contains" %>
-  </div>
-
-<div class="form-group">
     <%= f.label :body_cont, "Body contains" %>
     <%= f.text_field :body_cont, :class => "form-control", :placeholder => "Body contains" %>
-  </div>
-
-<div class="form-group">
-    <%= f.label :zip_cont, "Zip contains" %>
-    <%= f.text_field :zip_cont, :class => "form-control", :placeholder => "Zip contains" %>
-  </div>
-
-<div class="form-group">
-    <%= f.label :category_cont, "Category contains" %>
-    <%= f.text_field :category_cont, :class => "form-control", :placeholder => "Category contains" %>
   </div>
 
 <div class="form-group">
@@ -78,11 +58,16 @@
       <%= f.text_field :user_email_cont, :class => "form-control", :placeholder => "User email contains" %>
     </div>
 
+<div class="form-group">
+      <%= f.label :hotel_name_cont, "Hotel name contains" %>
+      <%= f.text_field :hotel_name_cont, :class => "form-control", :placeholder => "Hotel name contains" %>
+    </div>
+
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
-      <a href="/accomodations" class="btn btn-default btn-block mb-1">Clear filters</a>
+      <a href="/hcomments" class="btn btn-default btn-block mb-1">Clear filters</a>
     <% end %>
-    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#accomodations_filters">
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#hcomments_filters">
       Show Filters
     </a>
   </div>
@@ -92,37 +77,37 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Zip</th>
         <th>Body</th>
-        <th>Code</th>
         <th>User</th>
+        <th>Hotel</th>
         <th>Actions</th>
       </tr>
 
-      <% @accomodations.each do |accomodation| %>
+      <% @hcomments.each do |hcomment| %>
       <tr>
-        <td><%= accomodation.name %></td>
-        <td><%= accomodation.category %></td>
-        <td><%= accomodation.zip %></td>
-        <td><%= accomodation.body %></td>
-        <td><%= accomodation.code %></td>
+        <td><%= hcomment.body %></td>
         <td>
-          <% if accomodation.user.present? %>
-            <a href="/users/<%= accomodation.user.id %>">
-              <%= accomodation.user.email %>
+          <% if hcomment.user.present? %>
+            <a href="/users/<%= hcomment.user.id %>">
+              <%= hcomment.user.email %>
             </a>
           <% end %>
         </td>
         <td>
-          <a href="/accomodations/<%= accomodation.id %>" class="btn btn-primary">Show</a>
-          <a href="/accomodations/<%= accomodation.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_accomodation/<%= accomodation.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% if hcomment.hotel.present? %>
+            <a href="/hotels/<%= hcomment.hotel.id %>">
+              <%= hcomment.hotel.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <a href="/hcomments/<%= hcomment.id %>" class="btn btn-primary">Show</a>
+          <a href="/hcomments/<%= hcomment.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_hcomment/<%= hcomment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>
     </table>
-    <%= paginate @accomodations, theme: 'twitter-bootstrap-4' %>
+    <%= paginate @hcomments, theme: 'twitter-bootstrap-4' %>
   </div>
 </div>

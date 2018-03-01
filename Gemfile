@@ -49,9 +49,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'starter_generators', :git => 'https://github.com/raghubetina/starter_generators.git',  :branch => 'firstdraft'
+gem 'draft_generators', git: 'https://github.com/firstdraft/draft_generators.git', group: :development
+gem 'web_git', github: 'firstdraft/web_git'
 gem 'font-awesome-sass', '~> 4.5.0'
-gem 'activeadmin', :git => 'https://github.com/activeadmin/activeadmin.git', :ref => 'a932d56b156eaf64beb86cb45f8f801b7933c42e'
-gem 'inherited_resources', :git => 'https://github.com/activeadmin/inherited_resources.git'
+gem 'activeadmin', '1.2.1'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'dotenv-rails', :groups => [:development, :test]
