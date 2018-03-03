@@ -1,7 +1,6 @@
-ActiveAdmin.register User do
+ActiveAdmin.register Alike do
 
- permit_params :email, :password, :username, :name
-
+ permit_params :activity_id, :user_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -14,6 +13,5 @@ ActiveAdmin.register User do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
 
 end

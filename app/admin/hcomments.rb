@@ -1,7 +1,6 @@
-ActiveAdmin.register Slike do
+ActiveAdmin.register Hcomment do
 
- permit_params :user_id, :song_id
-
+ permit_params :body, :user_id, :hotel_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -14,6 +13,5 @@ ActiveAdmin.register Slike do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
 
 end

@@ -1,14 +1,14 @@
 class ActivitiesController < ApplicationController
   def index
     @q = Activity.ransack(params[:q])
-    @activities = @q.result(:distinct => true).includes(:user, :bookmarks, :acomments).page(params[:page]).per(10)
+    @activities = @q.result(:distinct => true).includes(:user, :acomments, :alikes).page(params[:page]).per(10)
 
     render("activities/index.html.erb")
   end
 
   def show
-    @acomment = Acomment.new
     @alike = Alike.new
+    @acomment = Acomment.new
     @activity = Activity.find(params[:id])
 
     render("activities/show.html.erb")
