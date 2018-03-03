@@ -1,5 +1,7 @@
-class Accomodation < ApplicationRecord
+class Hcomment < ApplicationRecord
   # Direct associations
+
+  belongs_to :hotel
 
   belongs_to :user
 

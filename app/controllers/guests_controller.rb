@@ -22,8 +22,7 @@ class GuestsController < ApplicationController
     @guest = Guest.new
 
     @guest.user_id = params[:user_id]
-    @guest.age = params[:age]
-    @guest.status = params[:status]
+    @guest.age_group = params[:age_group]
     @guest.food = params[:food]
     @guest.lastname = params[:lastname]
     @guest.firstname = params[:firstname]
@@ -56,8 +55,7 @@ class GuestsController < ApplicationController
     @guest = Guest.find(params[:id])
 
     @guest.user_id = params[:user_id]
-    @guest.age = params[:age]
-    @guest.status = params[:status]
+    @guest.age_group = params[:age_group]
     @guest.food = params[:food]
     @guest.lastname = params[:lastname]
     @guest.firstname = params[:firstname]

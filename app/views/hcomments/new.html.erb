@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @hcomment.errors.any? %>
+  <% @hcomment.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Hcomment</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_hcomment" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <input type="text" id="body" name="body" placeholder="Body" class="form-control" value="<%= @hcomment.body %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email, @hcomment.user_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for hotel_id -->
+      <div class="form-group">
+        <label for="hotel_id" class="control-label">
+          Hotel
+        </label>
+
+        <%= select_tag(:hotel_id, options_from_collection_for_select(Hotel.all, :id, :name, @hcomment.hotel_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-success">
+        Create Hcomment
+      </button>
+      or
+      <a href="/hcomments">Cancel</a>
+    </form>
+  </div>
+</div>

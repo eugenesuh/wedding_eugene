@@ -1,14 +1,34 @@
 <div class="page-header">
   <h1>
-    Alikes
-    <a href="/alikes/new" class="btn btn-lg btn-success">New Alike</a>
+    Hotels
+    <a href="/hotels/new" class="btn btn-lg btn-success">New Hotel</a>
   </h1>
 </div><div class="row mb-1">
   <div class="col-md-12">
-    <%= search_form_for @q, :class => collapse_search_form, :id => "alikes_filters" do |f| %>
+    <%= search_form_for @q, :class => collapse_search_form, :id => "hotels_filters" do |f| %>
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :body_cont, "Body contains" %>
+    <%= f.text_field :body_cont, :class => "form-control", :placeholder => "Body contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :zip_cont, "Zip contains" %>
+    <%= f.text_field :zip_cont, :class => "form-control", :placeholder => "Zip contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :airbnb_ind_cont, "Airbnb ind contains" %>
+    <%= f.text_field :airbnb_ind_cont, :class => "form-control", :placeholder => "Airbnb ind contains" %>
+  </div>
+
+<div class="form-group">
           <%= f.label :created_at, "Created at" %>
           <div class="row">
             <div class='col-md-6 mb-1'>
@@ -54,15 +74,15 @@
     </div>
 
 <div class="form-group">
-      <%= f.label :activity_title_cont, "Activity title contains" %>
-      <%= f.text_field :activity_title_cont, :class => "form-control", :placeholder => "Activity title contains" %>
+      <%= f.label :hcomments_body_cont, "Hcomment body contains" %>
+      <%= f.text_field :hcomments_body_cont, :class => "form-control", :placeholder => "Hcomment body contains" %>
     </div>
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
-      <a href="/alikes" class="btn btn-default btn-block mb-1">Clear filters</a>
+      <a href="/hotels" class="btn btn-default btn-block mb-1">Clear filters</a>
     <% end %>
-    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#alikes_filters">
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#hotels_filters">
       Show Filters
     </a>
   </div>
@@ -72,35 +92,35 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Activity</th>
+        <th>Name</th>
+        <th>Airbnb ind</th>
         <th>User</th>
+        <th>Zip</th>
+        <th>Body</th>
         <th>Actions</th>
       </tr>
 
-      <% @alikes.each do |alike| %>
+      <% @hotels.each do |hotel| %>
       <tr>
+        <td><%= hotel.name %></td>
+        <td><%= hotel.airbnb_ind %></td>
         <td>
-          <% if alike.activity.present? %>
-            <a href="/activities/<%= alike.activity.id %>">
-              <%= alike.activity.title %>
+          <% if hotel.user.present? %>
+            <a href="/users/<%= hotel.user.id %>">
+              <%= hotel.user.email %>
             </a>
           <% end %>
         </td>
+        <td><%= hotel.zip %></td>
+        <td><%= hotel.body %></td>
         <td>
-          <% if alike.user.present? %>
-            <a href="/users/<%= alike.user.id %>">
-              <%= alike.user.email %>
-            </a>
-          <% end %>
-        </td>
-        <td>
-          <a href="/alikes/<%= alike.id %>" class="btn btn-primary">Show</a>
-          <a href="/alikes/<%= alike.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_alike/<%= alike.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/hotels/<%= hotel.id %>" class="btn btn-primary">Show</a>
+          <a href="/hotels/<%= hotel.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_hotel/<%= hotel.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>
     </table>
-    <%= paginate @alikes, theme: 'twitter-bootstrap-4' %>
+    <%= paginate @hotels, theme: 'twitter-bootstrap-4' %>
   </div>
 </div>

@@ -1,7 +1,6 @@
-ActiveAdmin.register Alike do
+ActiveAdmin.register Pcomment do
 
- permit_params :user_id, :activity_id
-
+ permit_params :user_id, :photo_id, :body
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -14,6 +13,5 @@ ActiveAdmin.register Alike do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
 
 end

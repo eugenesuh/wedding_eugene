@@ -1,7 +1,6 @@
-ActiveAdmin.register Accomodation do
+ActiveAdmin.register Hotel do
 
- permit_params :name, :category, :zip, :body, :code, :user_id
-
+ permit_params :name, :airbnb_ind, :user_id, :zip, :body
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -14,6 +13,5 @@ ActiveAdmin.register Accomodation do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
 
 end

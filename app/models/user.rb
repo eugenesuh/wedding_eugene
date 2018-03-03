@@ -1,6 +1,15 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :hotels,
+             :dependent => :destroy
+
+  has_many   :alikes,
+             :dependent => :destroy
+
+  has_many   :hcomments,
+             :dependent => :destroy
+
   has_many   :pcomments,
              :dependent => :destroy
 
@@ -16,9 +25,6 @@ class User < ApplicationRecord
   has_many   :photos,
              :dependent => :destroy
 
-  has_many   :accomodations,
-             :dependent => :destroy
-
   has_many   :scomments,
              :dependent => :destroy
 
@@ -26,10 +32,6 @@ class User < ApplicationRecord
              :dependent => :destroy
 
   has_many   :guests,
-             :dependent => :destroy
-
-  has_many   :bookmarks,
-             :class_name => "Alike",
              :dependent => :destroy
 
   # Indirect associations
